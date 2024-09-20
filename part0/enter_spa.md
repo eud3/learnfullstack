@@ -3,22 +3,17 @@ sequenceDiagram
     participant browser
     participant server
 
-    browser->>server: POST /new_note
-    activate server
-    Note right of browser:  add note to notes array
-    server-->>browser: URL redirect /notes
-    deactivate server
     browser->>server: GET /notes
     activate server
     server-->>browser: HTML document
     deactivate server
     browser->>server: GET /main.css
     activate server
-    server-->>browser: CSS stylesheet
+    server-->>browser: CSS file
     deactivate server
-    browser->>server: GET /main.js
+    browser->>server: GET /spa.js
     activate server
-    server-->>browser: JavaScript code
+    server-->>browser: spa.js file
     deactivate server
     browser->>server: GET /data.json
     activate server
