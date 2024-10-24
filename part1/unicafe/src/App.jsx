@@ -1,19 +1,19 @@
-import { useState } from 'react'
+import { useState } from "react";
 
-const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>
+const Button = ({ onClick, text }) => <button onClick={onClick}>{text}</button>;
 
 const StatisticLine = ({ text, value }) => (
   <tr>
     <td>{text}</td>
     <td>{value}</td>
   </tr>
-)
+);
 
 const Statistics = ({ good, neutral, bad, total }) => {
-  const average = (good - bad) / total
-  const positivePercentage = (good / total) * 100
+  const average = (good - bad) / total;
+  const positivePercentage = (good / total) * 100;
 
-  if (total === 0) return <p>No feedback given</p>
+  if (total === 0) return <p>No feedback given</p>;
 
   return (
     <table>
@@ -25,31 +25,31 @@ const Statistics = ({ good, neutral, bad, total }) => {
         <StatisticLine text="average" value={average}></StatisticLine>
         <StatisticLine
           text="positive"
-          value={positivePercentage + ' %'}
+          value={positivePercentage + " %"}
         ></StatisticLine>
       </tbody>
     </table>
-  )
-}
+  );
+};
 
 const App = () => {
-  const [good, setGood] = useState(0)
-  const [neutral, setNeutral] = useState(0)
-  const [bad, setBad] = useState(0)
-  const [total, setTotal] = useState(0)
+  const [good, setGood] = useState(0);
+  const [neutral, setNeutral] = useState(0);
+  const [bad, setBad] = useState(0);
+  const [total, setTotal] = useState(0);
 
   const increaseGood = () => {
-    setTotal(total + 1)
-    setGood(good + 1)
-  }
+    setTotal(total + 1);
+    setGood(good + 1);
+  };
   const increaseNeutral = () => {
-    setTotal(total + 1)
-    setNeutral(neutral + 1)
-  }
+    setTotal(total + 1);
+    setNeutral(neutral + 1);
+  };
   const increaseBad = () => {
-    setTotal(total + 1)
-    setBad(bad + 1)
-  }
+    setTotal(total + 1);
+    setBad(bad + 1);
+  };
 
   return (
     <div>
@@ -62,7 +62,7 @@ const App = () => {
       <h1>Statistics</h1>
       <Statistics good={good} neutral={neutral} bad={bad} total={total} />
     </div>
-  )
-}
+  );
+};
 
-export default App
+export default App;
